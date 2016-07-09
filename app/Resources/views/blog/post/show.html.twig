@@ -1,0 +1,8 @@
+{% extends 'layouts/master.html.twig' %}
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>{{ post.content|md2html }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+# 服务容器配置文件
+# 具体请查看http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    # 注册Markdown类为服务
+    markdown:
+        class: AppBundle\Utils\Markdown
+    # 注册Markdown的Twig过滤器
+    app.twig_extension:
+        public:    false
+        class:     AppBundle\Twig\AppExtension
+        arguments: ['@markdown']
+        tags:
+            - { name: twig.extension }

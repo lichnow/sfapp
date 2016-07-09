@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+{% endblock %}
+{% block javascripts %}
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block body %}
+    {# 内嵌控制器方法加载导航栏挂件 #}
+    {#具体查看http://symfony.com/doc/current/book/templating.html#embedding-controllers#}
+    {% block nav %}{{ render(controller('AppBundle:Frontend/Widgets:recentNav')) }}{% endblock %}
+    <div class="container">{% block content %}{% endblock %}</div>
+{% endblock %}

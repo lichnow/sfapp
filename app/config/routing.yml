@@ -1,0 +1,11 @@
+# 首页路由跳转到博客文章展示页
+_welcome:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /blog
+        permanent: true
+#前端控制器路由
+frontend:
+    resource: "@AppBundle/Controller/Frontend"
+    type:     annotation
