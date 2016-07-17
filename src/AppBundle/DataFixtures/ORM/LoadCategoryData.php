@@ -24,16 +24,34 @@ class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterfac
     public function load(ObjectManager $manager)
     {
         $categories = array(
-            ['name' => 'symfony3框架实战', 'path' => 'symfony3-practis'],
-            ['name' => 'reactjs开发全解', 'path' => 'reactjs-development'],
+            ['name' => 'web课程','tree' => 'web'],
+            ['name' => 'php课程','parent' => 'web','tree' => 'php'],
+            ['name' => 'symfony3课程','parent' => 'php','tree' => 'symfony'],
+            ['name' => 'symfony3框架实战','parent' => 'symfony','tree' => 'sfpra'],
+            ['name' => '前端课程','tree' => 'front'],
+            ['name' => 'reactjs开发全解','parent' => 'front','tree' => 'repra'],
+            ['name' => 'Vuejs开发全解','parent' => 'front','tree' => 'revue'],
+            ['name' => '运维课程','tree' => 'os']
         );
+
         foreach ($categories as $category) {
             $Category = new Category();
             $Category->setName($category['name']);
-            $Category->setPath($category['path']);
             $manager->persist($Category);
             $manager->flush();
-            $this->addReference('category-' . $category['path'], $Category);
+            $this->addReference('category-' . $category['tree'], $Category);
+        }
+
+        $repo = $manager->getRepository('AppBundle:Category');
+
+        foreach ($categories as $category) {
+            $Category = $repo->findOneByName($category['name']);
+            if(key_exists('parent',$category)){
+                $parent = $this->getReference('category-'.$category['parent']);
+                $Category->setParent($parent);
+                $manager->persist($Category);
+                $manager->flush();
+            }
         }
     }
 

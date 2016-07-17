@@ -3,15 +3,19 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
+    use TimestampableEntity;
     /**
      * @var int
      *
@@ -27,6 +31,24 @@ class Post
     private $title;
 
     /**
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $slug;
+
+    /**
+     * @Gedmo\Slug(handlers={
+     *     @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\RelativeSlugHandler",options={
+     *         @Gedmo\SlugHandlerOption(name="relationField", value="category"),
+     *         @Gedmo\SlugHandlerOption(name="relationSlugField", value="path"),
+     *         @Gedmo\SlugHandlerOption(name="separator", value="/"),
+     *         @Gedmo\SlugHandlerOption(name="urilize", value=true)
+     *     })
+     * },fields={"slug"}, separator="/")
+     * @Doctrine\ORM\Mapping\Column(length=164, unique=true)
+     */
+    private $path;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $content;
@@ -37,9 +59,20 @@ class Post
     private $category;
 
     /**
+     * @ORM\PostPersist()
+     * @ORM\prePersist()
+     */
+    public function setDefaultSlug()
+    {
+        if (!$this->slug){
+            $this->slug = mt_rand(10,100000);
+        }
+    }
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -68,6 +101,30 @@ class Post
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     *
+     * @return Post
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 
     /**
@@ -101,7 +158,7 @@ class Post
      *
      * @return Post
      */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
+    public function setCategory(\AppBundle\Entity\Category $category)
     {
         $this->category = $category;
 
@@ -116,5 +173,29 @@ class Post
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

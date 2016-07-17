@@ -1,0 +1,22 @@
+{% extends 'layouts/master.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
+    <script src="{{ asset('js/blog/posts.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(controller('widget.app.blog_breadcurmb:recent',{'category':category})) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            {{ render(controller('widget.app.blog_category:recent',{'category':category})) }}
+        </div>
+        <div class="col-md-9">
+            {% block article %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

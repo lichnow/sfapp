@@ -1,0 +1,12 @@
+{% if tree|length > 0 %}
+<ol class="breadcrumb">
+        <li><a href="{{ path('blog_index') }}">首页</a></li>
+        {% for node in tree %}
+            {% if node.id != category.id %}
+                <li><a href="{{ path('blog_category',{'path':node.path}) }}">{{ node.name }}</a></li>
+            {% else %}
+                <li class="active">{{ node.name }}</li>
+            {% endif %}
+        {% endfor %}
+</ol>
+{% endif %}

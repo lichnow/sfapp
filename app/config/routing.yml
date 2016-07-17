@@ -9,3 +9,18 @@ _welcome:
 frontend:
     resource: "@AppBundle/Controller/Frontend"
     type:     annotation
+    prefix: /
+
+frontend_widget:
+    resource: "@AppBundle/Widget/Frontend"
+    type:     annotation
+    prefix: /widget
+
+#fos_comment_api:
+#   type: rest
+#   resource: "@FOSCommentBundle/Resources/config/routing.yml"
+#   prefix: /api
+#   defaults: { _format: html }
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

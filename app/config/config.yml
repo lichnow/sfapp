@@ -31,7 +31,10 @@ framework:
     fragments:       ~
     http_method_override: true
     assets: ~
-
+    translator: ~
+    serializer:
+        enabled: true
+        enable_annotations: true
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
@@ -51,6 +54,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            sluggable: true
+            tree: true
+            timestampable: true
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -66,3 +77,22 @@ sensio_framework_extra:
     cache:       { annotations: true }
     security:    { annotations: true }
     psr_message: { enabled: false }
+
+#fos_comment:
+#    db_driver: orm
+#    class:
+#        model:
+#            comment: AppBundle\Entity\Comment
+#            thread: AppBundle\Entity\Thread
+
+#assetic:
+#    debug:          '%kernel.debug%'
+#    use_controller: '%kernel.debug%'
+#    filters:
+#        cssrewrite: ~
+#    bundles: [ "FOSCommentBundle" ]
+
+white_october_pagerfanta:
+    exceptions_strategy:
+        out_of_range_page:        ~
+        not_valid_current_page:   ~

@@ -37,9 +37,9 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface, C
     public function load(ObjectManager $manager)
     {
         $posts = array(
-            ['title' => '第一讲:Symfony3的简介,开发环境与版本控制', 'cate' => 'symfony3-practis'],
-            ['title' => '第二讲: 最佳实践与第一个Symfony应用', 'cate' => 'symfony3-practis'],
-            ['title' => '第三讲: 创建初步用户系统', 'cate' => 'symfony3-practis'],
+            ['title' => '第一讲:Symfony3的简介,开发环境与版本控制', 'cate' => 'sfpra'],
+            ['title' => '第二讲: 最佳实践与第一个Symfony应用', 'cate' => 'sfpra'],
+            ['title' => '第三讲: 创建初步用户系统', 'cate' => 'sfpra'],
         );
         $post_files_path = $this->container->getParameter('kernel.root_dir') . '/data/fixtures/posts';
         $finder = new Finder();

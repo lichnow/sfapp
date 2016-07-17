@@ -1,0 +1,14 @@
+{% extends 'blog/layout.html.twig' %}
+{% block article %}
+    <div class="list-group">
+        {% for post in posts %}
+            {% set cpath = null %}
+            {% if category %}{% set cpath = category.path %}{% endif %}
+            <a href="{{ path('blog_post_show',{"path": post.path}) }}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ post.title }}</h4>
+                {#m2html过滤器为自定义扩展,用于markdown转义为html#}
+                <p class="list-group-item-text">{{ post.content|md2html|striptags|slice(0, 150) }}...</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

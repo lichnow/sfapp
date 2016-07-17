@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Post;
 
 /**
  * PostRepository
@@ -10,4 +12,14 @@ namespace AppBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByNodeCategory(Category $category)
+    {
+        $categories = $this->_em->getRepository(Category::class)->getTree($category);
+        $qb = $this->_em->createQueryBuilder('p')->from(Post::class,'p');
+        return $qb
+            ->select('p')
+            ->where('p.category IN (:categories)')
+            ->setParameter('categories',$categories)
+            ->getQuery()->getArrayResult();
+    }
 }

@@ -1,8 +1,9 @@
-{% extends 'layouts/master.html.twig' %}
-{% block content %}
+{% extends 'blog/layout.html.twig' %}
+{% block article %}
     <div class="panel panel-default">
         <div class="panel-body">
             <p>{{ post.content|md2html }}</p>
         </div>
     </div>
+    {#{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}#}
 {% endblock %}
