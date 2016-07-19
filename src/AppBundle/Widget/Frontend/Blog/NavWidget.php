@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: lichnow
- * Date: 16/7/17
- * Time: 下午1:51
+ * 无限子分类导航挂件
  */
 
 namespace AppBundle\Widget\Frontend\Blog;

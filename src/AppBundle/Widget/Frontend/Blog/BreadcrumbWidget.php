@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: lichnow
- * Date: 16/7/16
- * Time: 上午10:24
+ * 面包屑挂件
  */
 
 namespace AppBundle\Widget\Frontend\Blog;

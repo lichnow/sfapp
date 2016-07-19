@@ -29,9 +29,7 @@ class PostController extends Controller
      * 使用annotation模板写法
      * 具体查看http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/view.html
      *
-     * @Route("/", name="blog_index", defaults={"_format": "html"},requirements={
-     *     "_format": "html"
-     * })
+     * @Route("/", name="blog_index")
      * @Method("GET")
      * @Template("blog/post/list.html.twig")
      */
@@ -51,7 +49,10 @@ class PostController extends Controller
      * 使用annotation模板写法
      * 具体查看http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/view.html
      *
-     * @Route("/category/{path}", name="blog_category",requirements={ "path": ".+"})
+     * 允许在路由中出现"/"字符
+     * 具体查看http://symfony.com/doc/current/cookbook/routing/slash_in_parameter.html
+     *
+     * @Route("/{path}", name="blog_category",requirements={ "path": "^.+?(?<!.html)$"})
      * @Method("GET")
      * @Template("blog/post/list.html.twig")
      */
@@ -61,7 +62,9 @@ class PostController extends Controller
         return compact('posts','category');
     }
     /**
-     * @Route("/posts/{path}.html", name="blog_post_show",requirements={ "path": ".+"})
+     * 加上.html并配置ListAction的路由正则即可区分list和show的访问
+     *
+     * @Route("/{path}.html", name="blog_post_show",requirements={ "path": ".+"})
      * @Method("GET")
      * @Template("blog/post/show.html.twig")
      */

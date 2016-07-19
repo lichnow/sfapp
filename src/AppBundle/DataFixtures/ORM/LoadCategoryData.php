@@ -37,6 +37,7 @@ class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterfac
         foreach ($categories as $category) {
             $Category = new Category();
             $Category->setName($category['name']);
+            $Category->setSlug($category['tree']);
             $manager->persist($Category);
             $manager->flush();
             $this->addReference('category-' . $category['tree'], $Category);

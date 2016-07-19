@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: lichnow
- * Date: 16/7/15
- * Time: 上午7:19
+ * 分类sidebar挂件
  */
 
 namespace AppBundle\Widget\Frontend\Blog;
@@ -19,6 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class CategoryWidget extends BaseWidget
 {
     /**
+     * 加载分类sidebar模板
      * @Template("widget/blog/category.html.twig")
      */
     public function recent(Category $category = null)
@@ -27,6 +25,7 @@ class CategoryWidget extends BaseWidget
     }
 
     /**
+     * 输出分类tree的API数据
      * @Route("/tree/api/{id}",options={"expose"=true},name="widget.app.blog_category",defaults={"id":null})
      * @param Category $category
      * @return JsonResponse

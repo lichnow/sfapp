@@ -27,6 +27,7 @@ class BaseWidget
     }
 
     /**
+     * 此类为symfony controller基类中拷贝用于doctrine数据的json格式转换
      * Returns a JsonResponse that uses the serializer component if enabled, or json_encode.
      *
      * @param mixed $data    The response data

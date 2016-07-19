@@ -14,7 +14,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Category
 {
-//    use NestedSetEntity;
     /**
      * @var int
      *
@@ -31,8 +30,15 @@ class Category
     private $name;
 
     /**
+     * @Gedmo\Slug(handlers={
+     *      @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\InversedRelativeSlugHandler", options={
+     *          @Gedmo\SlugHandlerOption(name="relationClass", value="AppBundle\Entity\Post"),
+     *          @Gedmo\SlugHandlerOption(name="mappedBy", value="category"),
+     *          @Gedmo\SlugHandlerOption(name="inverseSlugField", value="path")
+     *      })
+     * }, fields={"name"})
+     * @ORM\Column(length=64, unique=true)
      * @Gedmo\TreePathSource
-     * @ORM\Column(length=64)
      */
     private $slug;
 

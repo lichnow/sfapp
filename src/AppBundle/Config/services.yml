@@ -3,13 +3,6 @@ services:
     markdown:
         class: AppBundle\Utils\Markdown
 
-    pingyin:
-        class: AppBundle\Utils\ToPingyin
-
-    sluger:
-        class: AppBundle\Utils\Sluger
-        arguments: ['@pingyin']
-
     # 注册Markdown的Twig过滤器
     twig.markdown.extension:
         public:    false
@@ -18,11 +11,7 @@ services:
         tags:
             - { name: twig.extension }
 
-    doctrine.pingyin_slug.subscriber:
-        class: AppBundle\EventListener\PingyinSlugSubscriber
-        arguments: ['@pingyin']
-        tags:
-            - { name: doctrine.event_subscriber }
+    # widget的服务配置
     widget.app.blog_category:
         class: AppBundle\Widget\Frontend\Blog\CategoryWidget
         arguments: ['@service_container']

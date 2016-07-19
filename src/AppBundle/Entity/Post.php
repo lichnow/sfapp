@@ -40,8 +40,7 @@ class Post
      *     @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\RelativeSlugHandler",options={
      *         @Gedmo\SlugHandlerOption(name="relationField", value="category"),
      *         @Gedmo\SlugHandlerOption(name="relationSlugField", value="path"),
-     *         @Gedmo\SlugHandlerOption(name="separator", value="/"),
-     *         @Gedmo\SlugHandlerOption(name="urilize", value=true)
+     *         @Gedmo\SlugHandlerOption(name="separator", value="/")
      *     })
      * },fields={"slug"}, separator="/")
      * @Doctrine\ORM\Mapping\Column(length=164, unique=true)
