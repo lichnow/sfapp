@@ -35,7 +35,8 @@
         "white-october/pagerfanta-bundle": "^1.0",
         "stof/doctrine-extensions-bundle": "^1.2",
         "overtrue/pinyin": "~3.0",
-        "friendsofsymfony/jsrouting-bundle": "^1.6"
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

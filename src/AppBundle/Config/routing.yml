@@ -1,0 +1,10 @@
+#前端控制器路由
+frontend:
+    resource: "@AppBundle/Controller/Frontend"
+    type:     annotation
+    prefix: /
+
+frontend_widget:
+    resource: "@AppBundle/Widget/Frontend"
+    type:     annotation
+    prefix: /widget

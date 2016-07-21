@@ -2,11 +2,12 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: zh_CN
 
 framework:
     #esi:             ~
@@ -78,21 +79,13 @@ sensio_framework_extra:
     security:    { annotations: true }
     psr_message: { enabled: false }
 
-#fos_comment:
-#    db_driver: orm
-#    class:
-#        model:
-#            comment: AppBundle\Entity\Comment
-#            thread: AppBundle\Entity\Thread
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
 
 #assetic:
 #    debug:          '%kernel.debug%'
 #    use_controller: '%kernel.debug%'
 #    filters:
 #        cssrewrite: ~
-#    bundles: [ "FOSCommentBundle" ]
-
-white_october_pagerfanta:
-    exceptions_strategy:
-        out_of_range_page:        ~
-        not_valid_current_page:   ~
