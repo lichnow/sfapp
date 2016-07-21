@@ -32,11 +32,8 @@
         "ezyang/htmlpurifier": "^4.7",
         "friendsofsymfony/comment-bundle": "2.0.x-dev",
         "symfony/assetic-bundle": "^2.8",
-        "white-october/pagerfanta-bundle": "^1.0",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "overtrue/pinyin": "~3.0",
-        "friendsofsymfony/jsrouting-bundle": "^1.6",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
