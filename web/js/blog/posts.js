@@ -1,8 +1,8 @@
 $(function () {
     $('[data-submenu]').submenupicker();
-    $('.dropdown').find('a').unbind("click").click(function () {
-        window.location.href = $(this).attr('href');
-    });
+    // $('.dropdown').find('a').unbind("click").click(function () {
+    //     window.location.href = $(this).attr('href');
+    // });
     $.ajax({
         url: Routing.generate('widget.app.blog_category', {'id': $('#category-tree').data('actived')}),
         async: true,

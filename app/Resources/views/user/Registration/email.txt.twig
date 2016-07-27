@@ -1,0 +1,87 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+{% autoescape false %}
+你好{{ user.username }},欢迎加入PHPNa,赶快与童鞋们一起来玩吧!
+{#{{ 'registration.email.subject'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}#}
+{% endautoescape %}
+{% endblock %}
+{#{% block body_text %}#}
+{#{% autoescape false %}#}
+{#{{ 'registration.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}#}
+{#{% endautoescape %}#}
+{#{% endblock %}#}
+{% block body_html %}
+{% autoescape false %}
+<style type="text/css">{{ include('user/Public/email.css.twig') }}</style>
+<table class="mui-body" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <center>
+          <!--[if mso]><table><tr><td class="mui-container-fixed"><![endif]-->
+          <div class="mui-container">
+            <h3 class="mui--text-center">PHPNa.com</h3>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td class="mui-panel">
+                  <table
+                          id="content-wrapper"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                          width="100%"
+                  >
+                    <tbody>
+                    <tr>
+                      <td>
+                        <h2>欢迎加入PHPNa社区(最棒的极客技术学习社区)!</h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="mui--divider-top">
+                        你好 Lichnow,
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        当你收到此邮件时你即将成为一名热爱编程的Hacker,请点击以下链接加入我们吧!
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table
+                                class="mui-btn mui-btn--primary"
+                                border="0"
+                                cellspacing="0"
+                                cellpadding="0"
+                        >
+                          <tr>
+                            <td>
+                              <a href="{{ confirmationUrl }}">请猛戳这里</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        再次感谢你的信任,
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="last-cell">
+                        PHPNa Team
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!--[if mso]></td></tr></table><![endif]-->
+        </center>
+      </td>
+    </tr>
+  </table>
+{% endautoescape %}
+{% endblock %}

@@ -35,6 +35,27 @@ class PostController extends Controller
      */
     public function indexAction()
     {
+//        $message = \Swift_Message::newInstance()
+//
+//            // Give the message a subject
+//            ->setSubject('来自SendCloud的第一封邮件')
+//
+//            // Set the From address with an associative array
+//            ->setFrom(array('admin@phpna.com' => 'lichnow'))
+//
+//            // Set the To addresses with an associative array
+//            ->setTo(array('lichnow@126.com'))
+//
+//            // Give it a body
+//            ->setBody($this->renderView(
+//            // app/Resources/views/Emails/registration.html.twig
+//                'user/Emails/Resetting.html.twig'
+//            ),
+//                'text/html')
+//        ;
+//        $this->get('mailer')->send($message);
+//        return $this->render('user/Emails/Resetting.html.twig');
+//        return $this->render('user/Emails/Registration.html.twig');
         $PostRepo = $this->getDoctrine()->getRepository(Post::class);
         $posts = $PostRepo->findAll();
         $category = null;

@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/blog/category",service="widget.app.blog_category")
+ * @Route("/blog/category",service="widget.app.blog_sidemenu")
  */
-class CategoryWidget extends BaseWidget
+class SideMenuWidget extends BaseWidget
 {
     /**
      * 加载分类sidebar模板
-     * @Template("widget/blog/category.html.twig")
+     * @Template("widget/blog/sidemenu.html.twig")
      */
     public function recent(Category $category = null)
     {

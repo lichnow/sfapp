@@ -16,6 +16,10 @@ frontend_widget:
     type:     annotation
     prefix: /widget
 
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /user
+
 #fos_comment_api:
 #   type: rest
 #   resource: "@FOSCommentBundle/Resources/config/routing.yml"

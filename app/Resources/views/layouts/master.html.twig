@@ -1,20 +1,22 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+    {#<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">#}
     <link href="http://cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('dist/css/bootstrap-submenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js">></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
     <script src="{{ asset('dist/js/bootstrap-submenu.js') }}"></script>
 {% endblock %}
 {% block body %}
     {# 内嵌控制器方法加载导航栏挂件 #}
     {#具体查看http://symfony.com/doc/current/book/templating.html#embedding-controllers#}
-    {% block nav %}{{ include("public/nav.html.twig") }}{% endblock %}
+    {% block nav %}{{ include("public/navbar.html.twig") }}{% endblock %}
     <div class="container">{% block content %}{% endblock %}</div>
 {% endblock %}

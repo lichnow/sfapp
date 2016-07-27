@@ -1,0 +1,16 @@
+{% extends "user/layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ 'resetting.request.submit'|trans({}) }}</div>
+        <div class="panel-body">
+            {% if invalid_username is defined %}
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}
+                </div>
+            {% endif %}
+            {% include "user/Resetting/request_content.html.twig" %}
+        </div>
+    </div>
+{% endblock fos_user_content %}

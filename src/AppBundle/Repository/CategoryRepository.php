@@ -46,4 +46,15 @@ class CategoryRepository extends MaterializedPathRepository
             ->getArrayResult();
         return $tree;
     }
+
+    public function getNavMenu()
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $tree = $qb->select('c')
+            ->from(Category::class,'c')
+            ->where('c.level < 2')
+            ->getQuery()
+            ->getArrayResult();
+        return $tree;
+    }
 }

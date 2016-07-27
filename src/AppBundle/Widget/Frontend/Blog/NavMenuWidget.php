@@ -10,14 +10,14 @@ use AppBundle\Widget\BaseWidget;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Category;
 
-class NavWidget extends BaseWidget
+class NavMenuWidget extends BaseWidget
 {
     /**
-     * @Template("widget/blog/nav.html.twig")
+     * @Template("widget/blog/navmenu.html.twig")
      */
     public function recent(Category $category = null)
     {
-        return ['category' => $this->createCategoryTree($category)];
+        return ['tree' => $this->createCategoryTree($category)];
     }
 
     private function checkCategoryChildren($array)

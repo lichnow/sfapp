@@ -2,6 +2,7 @@
 # 具体请查看http://symfony.com/doc/current/book/service_container.html
 imports:
     - { resource: "@AppBundle/Config/services.yml" }
+    - { resource: "@UserBundle/Config/services.yml" }
 parameters:
 #    parameter_name: value
 services:

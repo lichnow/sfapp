@@ -1,0 +1,19 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% form_theme form "bootstrap_3_horizontal_layout.html.twig" %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'novalidate': 'novalidate','class': 'fos_user_registration_register'}}) }}
+
+{{ form_widget(form) }}
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" class="btn btn-primary" value="{{ 'registration.submit'|trans }}"/>
+    </div>
+</div>
+<hr style="margin-top:10px;margin-bottom:10px;">
+<div style="font-size:85%">
+    已经有账户了?
+    <a href="{{ path('fos_user_security_login') }}">
+        立即登录
+    </a>
+</div>
+{{ form_end(form) }}

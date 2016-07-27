@@ -12,14 +12,14 @@ services:
             - { name: twig.extension }
 
     # widget的服务配置
-    widget.app.blog_category:
-        class: AppBundle\Widget\Frontend\Blog\CategoryWidget
-        arguments: ['@service_container']
-
     widget.app.blog_breadcurmb:
         class: AppBundle\Widget\Frontend\Blog\BreadcrumbWidget
         arguments: ['@service_container']
 
-    widget.app.blog_nav:
-        class: AppBundle\Widget\Frontend\Blog\NavWidget
+    widget.app.blog_sidemenu:
+        class: AppBundle\Widget\Frontend\Blog\SideMenuWidget
+        arguments: ['@service_container']
+
+    widget.app.blog_navmenu:
+        class: AppBundle\Widget\Frontend\Blog\NavMenuWidget
         arguments: ['@service_container']
